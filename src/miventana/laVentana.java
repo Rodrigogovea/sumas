@@ -2,6 +2,7 @@ package miventana;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.ComponentOrientation;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,6 +50,7 @@ public class laVentana extends JFrame
        display.setBounds(0, 25, 205, 20);
        display.setEditable(false);
        display.setFont(new Font("Calibri",Font.BOLD,18));
+       display.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
        this.add(display);
        
        //botones
