@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 public class laVentana extends JFrame
@@ -216,6 +217,16 @@ public class laVentana extends JFrame
        btndividir.setText("/");
        btndividir.setFont(new Font("Calibri",Font.BOLD,25));
        btndividir.setBounds(155, 152, 50, 50);
+       btndividir.addActionListener(new ActionListener()
+       {
+           @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                misOperaciones.setX(Integer.valueOf(display.getText()));
+                op=2;
+                display.setText("");
+            }
+       });
        this.add(btndividir);
        
        boton0 = new JButton();
@@ -243,13 +254,27 @@ public class laVentana extends JFrame
            @Override
            public void actionPerformed(ActionEvent e)
            {
-               misOperaciones.setY(Integer.valueOf(display.getText()));
-               if(op==1)
+               if(display.getText()=="")
                {
-                   misOperaciones.multiplicacion();
-                   display.setText(Integer.toString(misOperaciones.getResultado()));
-                   misOperaciones.setX(0);
-                   misOperaciones.setY(0);
+                   JOptionPane.showMessageDialog(null,"Nada que hacer...","Error",JOptionPane.ERROR_MESSAGE);
+               }
+               else
+               {
+                   misOperaciones.setY(Integer.valueOf(display.getText()));
+                   if(op==1)
+                   {
+                       misOperaciones.multiplicacion();
+                       display.setText(Integer.toString(misOperaciones.getResultado()));
+                       misOperaciones.setX(0);
+                       misOperaciones.setY(0);
+                   }
+                   if(op==2)
+                   {
+                       misOperaciones.division();
+                       display.setText(Integer.toString(misOperaciones.getResultado()));
+                       misOperaciones.setX(0);
+                       misOperaciones.setY(0);
+                   }
                }
            }
        });
