@@ -8,5 +8,6 @@ public class MiVentana
         myWindow.setVisible(true);
         
         //esto es una línea de código nueva.
+        //se agrego otra línea, desde github
     }
 }
