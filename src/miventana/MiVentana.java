@@ -6,5 +6,7 @@ public class MiVentana
         laVentana myWindow = new laVentana();
         myWindow.inicializarComponentes();
         myWindow.setVisible(true);
+        
+        //esto es una línea de código nueva.
     }
 }
